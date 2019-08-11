@@ -1,10 +1,12 @@
 $(document).ready(function() {
 
+  var HORIZONTAL = false;   // `false` for vertical (column) chart, `true` for horizontal bar 
+
   var TITLE = 'English Learners by Select School Districts in Connecticut, 2018-19';
 
-  var LABELS = 'district';
+  var LABELS = 'district';  // Column to define 'bucket' names (x axis)
 
-  var SERIES = [
+  var SERIES = [  // For each column representing a series, define its name and color
     {
       column: 'nonlearner',
       name: 'Non-Learners',
@@ -21,6 +23,7 @@ $(document).ready(function() {
   var Y_AXIS = 'Number of Enrolled Students'; // y-axis label and label in tooltip
 
   var SHOW_GRID = true; // `true` to show the grid, `false` to hide
+  var SHOW_LEGEND = true; // `true` to show the legend, `false` to hide
 
   // Read data file and create a chart
   d3.csv('data.csv').then(function(rows) {
@@ -45,12 +48,10 @@ $(document).ready(function() {
 			datasets: datasets
     };
 
-    console.log(barChartData)
-
     var ctx = document.getElementById('container').getContext('2d');
 
     new Chart(ctx, {
-      type: 'bar',
+      type: HORIZONTAL ? 'horizontalBar' : 'bar',
       data: barChartData,
       
       options: {
@@ -60,7 +61,7 @@ $(document).ready(function() {
           fontSize: 14,
         },
         legend: {
-          //display: false,
+          display: SHOW_LEGEND,
         },
         scales: {
           xAxes: [{
@@ -71,11 +72,17 @@ $(document).ready(function() {
             gridLines: {
               display: SHOW_GRID,
             },
+            ticks: {
+              beginAtZero: true,
+              callback: function(value, index, values) {
+                return value.toLocaleString();
+              }
+            }
           }],
           yAxes: [{
             beginAtZero: true,
             scaleLabel: {
-              display: true,
+              display: Y_AXIS !== '',
               labelString: Y_AXIS
             },
             gridLines: {
@@ -102,4 +109,5 @@ $(document).ready(function() {
     });
 
   });
+
 });

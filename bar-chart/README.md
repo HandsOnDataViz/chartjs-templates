@@ -2,12 +2,16 @@
 
 ![Bar chart with any number of series](../images/bar-chart.png)
 
+Depending on the `HORIZONTAL` variable set to `true` or `false` in `script.js`, can be shown as horizontal bar chart or vertical (column) chart.
+
 `data.csv` needs to contain at least 2 columns: labels and values for at least one series.
 There can be any number of series.
 
 In `script.js`, you can customize the values of variables shown in the code snippet below. For more customization, see [Chart.js documentation](https://www.chartjs.org/docs/latest/).
 
 ```javascript
+  var HORIZONTAL = false;   // `false` for vertical (column) chart, `true` for horizontal bar 
+
   var TITLE = 'English Learners by Select School Districts in Connecticut, 2018-19';
 
   var LABELS = 'district';  // Column to define 'bucket' names (x axis)
@@ -29,4 +33,5 @@ In `script.js`, you can customize the values of variables shown in the code snip
   var Y_AXIS = 'Number of Enrolled Students'; // y-axis label and label in tooltip
 
   var SHOW_GRID = true; // `true` to show the grid, `false` to hide
+  var SHOW_LEGEND = true; // `true` to show the legend, `false` to hide
 ```
