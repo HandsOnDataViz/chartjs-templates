@@ -2,7 +2,9 @@
 
 ![Scatter chart with one series](../images/scatter-chart.png)
 
-`data.csv` needs to contain 3 columns: x-values, y-values, and name of each data point. In `script.js`, you can customize the values of variables shown in the code snippet below. For more customization, see [Chart.js documentation](https://www.chartjs.org/docs/latest/).
+`data.csv` needs to contain 3 columns: x-values, y-values, and name of each data point.
+
+In `script.js`, you can customize the values of variables shown in the code snippet below. For more customization, see [Chart.js documentation](https://www.chartjs.org/docs/latest/).
 
 ```javascript
   var TITLE = 'Income and Test Scores in Connecticut School Districts, 2009-13';
