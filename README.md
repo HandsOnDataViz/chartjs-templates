@@ -2,6 +2,8 @@
 
 ## Scatter Chart with One Series
 
-Demo: 
+![Scatter chart with one series](./images/scatter-chart.png)
 
-Code: 
+Demo: https://datavizforall.github.io/chartjs-templates/scatter-chart/index.html
+
+Code and instructions: https://github.com/DataVizForAll/chartjs-templates/tree/master/scatter-chart
