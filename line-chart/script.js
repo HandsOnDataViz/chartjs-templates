@@ -1,27 +1,19 @@
 $(document).ready(function() {
 
-  var HORIZONTAL = false;   // `false` for vertical (column) chart, `true` for horizontal bar
-  var STACKED = false;  // `false` for individual bars, `true` for stacked bars
+  var TITLE = 'Hartford School District is No Longer the Largest in Connecticut';
 
-  var TITLE = 'English Learners by Select School Districts in Connecticut, 2018-19';
+  // Which column names contain data points?
+  var X_LABELS = ['2013-14', '2014-15', '2015-16', '2016-17', '2017-18', '2018-19'];
 
-  var LABELS = 'district';  // Column to define 'bucket' names (x axis)
+  // Which column name contains names (labels) for each series?
+  var NAMES = 'district';
 
-  var SERIES = [  // For each column representing a series, define its name and color
-    {
-      column: 'nonlearner',
-      name: 'Non-Learners',
-      color: 'grey'
-    },
-    {
-      column: 'learner',
-      name: 'Learners',
-      color: 'blue'
-    }
-  ];
+  // Optionally, which column contains color names for the series?
+  // If not specified, will apply default color scheme
+  var COLORS = 'color';
 
-  var X_AXIS = 'School Districts';  // x-axis label and label in tooltip
-  var Y_AXIS = 'Number of Enrolled Students'; // y-axis label and label in tooltip
+  var X_AXIS = 'Academic Year';  // x-axis label and label in tooltip
+  var Y_AXIS = 'Number of students'; // y-axis label and label in tooltip
 
   var SHOW_GRID = true; // `true` to show the grid, `false` to hide
   var SHOW_LEGEND = true; // `true` to show the legend, `false` to hide
@@ -29,31 +21,35 @@ $(document).ready(function() {
   // Read data file and create a chart
   d3.csv('data.csv').then(function(rows) {
 
-    var datasets = SERIES.map(function(el) {
-      return {
-        label: el.name,
-        labelDirty: el.column,
-        backgroundColor: el.color,
-        data: []
+    var datasets = rows.map(function(row) {
+
+      var dataset = {
+        label: row[NAMES],
+        fill: false,
+        data: X_LABELS.map(function(t) { return row[t] })
       }
+
+      if (row[COLORS]) {
+        dataset.backgroundColor = row[COLORS];
+        dataset.borderColor = row[COLORS];
+        dataset.pointBackgroundColor = row[COLORS];
+        dataset.pointBorderColor = row[COLORS];
+      }
+
+      return dataset;
+
     });
 
-    rows.map(function(row) {
-      datasets.map(function(d) {
-        d.data.push(row[d.labelDirty])
-      })
-    });
-
-		var barChartData = {
-      labels: rows.map(function(el) { return el[LABELS] }),
+		var lineChartData = {
+      labels: X_LABELS,
 			datasets: datasets
     };
 
     var ctx = document.getElementById('container').getContext('2d');
 
     new Chart(ctx, {
-      type: HORIZONTAL ? 'horizontalBar' : 'bar',
-      data: barChartData,
+      type: 'line',
+      data: lineChartData,
       
       options: {
         title: {
@@ -66,7 +62,6 @@ $(document).ready(function() {
         },
         scales: {
           xAxes: [{
-            stacked: STACKED,
             scaleLabel: {
               display: X_AXIS !== '',
               labelString: X_AXIS
@@ -75,14 +70,12 @@ $(document).ready(function() {
               display: SHOW_GRID,
             },
             ticks: {
-              beginAtZero: true,
               callback: function(value, index, values) {
                 return value.toLocaleString();
               }
             }
           }],
           yAxes: [{
-            stacked: STACKED,
             beginAtZero: true,
             scaleLabel: {
               display: Y_AXIS !== '',
@@ -92,7 +85,6 @@ $(document).ready(function() {
               display: SHOW_GRID,
             },
             ticks: {
-              beginAtZero: true,
               callback: function(value, index, values) {
                 return value.toLocaleString()
               }
@@ -106,6 +98,11 @@ $(document).ready(function() {
               return all.datasets[tooltipItem.datasetIndex].label
                 + ': ' + tooltipItem.yLabel.toLocaleString();
             }
+          }
+        },
+        plugins: {
+          colorschemes: {
+            scheme: 'brewer.Paired12'
           }
         }
       }

@@ -2,7 +2,9 @@
 
 ![Bar chart with any number of series](../images/bar-chart.png)
 
-Depending on the `HORIZONTAL` variable set to `true` or `false` in `script.js`, can be shown as horizontal bar chart or vertical (column) chart.
+Depending on the `HORIZONTAL` variable set to `true` or `false` in `script.js`,
+can be shown as horizontal bar chart or vertical (column) chart.
+Can be either **stacked** (if `STACKED` is set to `true`) or unstacked (regular).
 
 `data.csv` needs to contain at least 2 columns: labels and values for at least one series.
 There can be any number of series.
@@ -11,6 +13,7 @@ In `script.js`, you can customize the values of variables shown in the code snip
 
 ```javascript
   var HORIZONTAL = false;   // `false` for vertical (column) chart, `true` for horizontal bar 
+  var STACKED = false;  // `false` for individual bars, `true` for stacked bars
 
   var TITLE = 'English Learners by Select School Districts in Connecticut, 2018-19';
 
@@ -35,3 +38,6 @@ In `script.js`, you can customize the values of variables shown in the code snip
   var SHOW_GRID = true; // `true` to show the grid, `false` to hide
   var SHOW_LEGEND = true; // `true` to show the legend, `false` to hide
 ```
+
+## See also
+See **Bar Chart with CSV Data** chapter in DataVizForAll: https://datavizforall.org/bar-chart-with-csv-data.html

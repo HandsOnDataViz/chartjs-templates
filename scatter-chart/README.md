@@ -26,3 +26,7 @@ In `script.js`, you can customize the values of variables shown in the code snip
 
   var SHOW_GRID = true; // `true` to show the grid, `false` to hide
 ```
+
+## See also
+
+See **Scatter Chart with CSV Data** chapter in DataVizForAll: https://datavizforall.org/scatter-chart-with-csv-data.html
