@@ -2,7 +2,7 @@
 
 ![Line chart with any number of series](../images/line-chart.png)
 
-In `data.csv`, each row is a series. Each series consists of the same number of columns: label,
+In `data.csv`, each row is a series. Each series consists of the same number of columns: series name,
 and values. There can be any number of series (rows) and any number of columns.
 
 In `script.js`, you can customize the values of variables shown in the code snippet below. For more customization, see [Chart.js documentation](https://www.chartjs.org/docs/latest/).
