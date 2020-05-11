@@ -13,13 +13,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <script src="https://unpkg.com/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js"></script>
 
-    <!-- Load D3.js to read csv files -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+    <!-- Load PapaParse to read csv files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
   </head>
 
   <body>
 
-    <canvas id="container" style="width:100%; height:400px;"></canvas>
+    <div>
+      <canvas id="chart-container" style="height: 400px; width: 100%"></canvas>
+    </div>
     
     <p style="font-family: Helvetica; color: #333; padding: 1em 2em; font-size: 12px">
       Source: CT Department of Education
