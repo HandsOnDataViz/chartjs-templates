@@ -23,4 +23,4 @@ var SHOW_LEGEND = true; // `true` to show the legend, `false` to hide
 ```
 
 ## See also
-See **Line Chart with CSV Data** chapter in DataVizForAll: https://datavizforall.org/line-chart-with-csv-data.html
+See **Line Chart with CSV Data** chapter in handsondataviz: https://handsondataviz.org/line-chart-with-csv-data.html

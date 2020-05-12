@@ -40,4 +40,4 @@ In `script.js`, you can customize the values of variables shown in the code snip
 ```
 
 ## See also
-See **Bar Chart with CSV Data** chapter in DataVizForAll: https://datavizforall.org/bar-chart-with-csv-data.html
+See **Bar Chart with CSV Data** chapter in handsondataviz: https://handsondataviz.org/bar-chart-with-csv-data.html

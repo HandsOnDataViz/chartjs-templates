@@ -29,4 +29,4 @@ In `script.js`, you can customize the values of variables shown in the code snip
 
 ## See also
 
-See **Scatter Chart with CSV Data** chapter in DataVizForAll: https://datavizforall.org/scatter-chart-with-csv-data.html
+See **Scatter Chart with CSV Data** chapter in handsondataviz: https://handsondataviz.org/scatter-chart-with-csv-data.html
