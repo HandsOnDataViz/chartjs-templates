@@ -1,13 +1,12 @@
-# Bar Chart with 1+ Series
+# Bar Chart with 1+ Series (with error bars)
 
-![Bar chart with any number of series](../images/bar-chart.png)
+![Bar chart with any number of series](../images/bar-chart-with-error-bars.png)
 
 Depending on the `HORIZONTAL` variable set to `true` or `false` in `script.js`,
 can be shown as horizontal bar chart or vertical (column) chart.
 Can be either **stacked** (if `STACKED` is set to `true`) or unstacked (regular).
 
-`data.csv` needs to contain at least 2 columns: labels and values for at least one series.
-There can be any number of series.
+`data.csv` needs to contain at least 2 columns: labels and values for at least one series. There can be any number of series. Error bar values (margins of errors) have to be in a separate column whose name is defined by `errorColumn` property (see code snippet below).
 
 In `script.js`, you can customize the values of variables shown in the code snippet below. For more customization, see [Chart.js documentation](https://www.chartjs.org/docs/latest/).
 
@@ -21,14 +20,16 @@ In `script.js`, you can customize the values of variables shown in the code snip
 
   var SERIES = [  // For each column representing a series, define its name and color
     {
-      column: 'nonlearner',
-      name: 'Non-Learners',
-      color: 'grey'
+      column: 'median',
+      name: 'Median Income',
+      color: 'grey',
+      errorColumn: 'median_moe' // column name of error bar data, here `moe` stands for margins of errors
     },
     {
-      column: 'learner',
-      name: 'Learners',
-      color: 'blue'
+      column: 'mean',
+      name: 'Mean Income',
+      color: '#cc9999',
+      errorColumn: 'mean_moe'
     }
   ];
 
@@ -38,6 +39,3 @@ In `script.js`, you can customize the values of variables shown in the code snip
   var SHOW_GRID = true; // `true` to show the grid, `false` to hide
   var SHOW_LEGEND = true; // `true` to show the legend, `false` to hide
 ```
-
-## See also
-See **Bar Chart with CSV Data** chapter in handsondataviz: https://handsondataviz.org/bar-chart-with-csv-data.html
