@@ -10,6 +10,14 @@ Code and instructions: https://github.com/handsondataviz/chartjs-templates/tree/
 
 See **Bar Chart with CSV Data** chapter in handsondataviz: https://handsondataviz.org/bar-chart-with-csv-data.html
 
+## Bar Chart with 1+ Series (with error bars)
+
+![Bar chart with any number of series](./images/bar-chart-with-error-bars.png)
+
+Demo: https://handsondataviz.github.io/chartjs-templates/bar-chart-with-error-bars/index.html
+
+Code and instructions: https://github.com/handsondataviz/chartjs-templates/tree/master/bar-chart-with-error-bars
+
 
 ## Line Chart with 1+ Series
 
