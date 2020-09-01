@@ -1,7 +1,5 @@
-state,median,median_moe,mean,mean_moe
-Alaska,74346,2288,96080,2597
-California,75277,317,107384,481
-North Carolina,53855,573,76693,693
-Texas,60629,279,85780,478
-Vermont,60782,1551,79514,2533
-Wyoming,61584,1401,81935,3076
+geo,median,median_moe,mean,mean_moe
+North Carolina,52413,224,73753,332
+Mecklenburg County,64312,601,93951,954
+Charlotte,60886,752,90983,1100
+Census Tract 12,68115,24419,104604,17302

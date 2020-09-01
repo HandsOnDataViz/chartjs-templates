@@ -3,9 +3,9 @@ $(document).ready(function() {
   var HORIZONTAL = false;   // `false` for vertical (column) chart, `true` for horizontal bar
   var STACKED = false;  // `false` for individual bars, `true` for stacked bars
 
-  var TITLE = 'Household Income for Select US States, 2018';
+  var TITLE = 'Household Income for Select US Geographies, 2018';
 
-  var LABELS = 'state';  // Column to define 'bucket' names (x axis)
+  var LABELS = 'geo';  // Column to define 'bucket' names (x axis)
 
   var SERIES = [  // For each column representing a series, define its name and color
     {
@@ -22,7 +22,7 @@ $(document).ready(function() {
     }
   ];
 
-  var X_AXIS = 'State';  // x-axis label and label in tooltip
+  var X_AXIS = 'Geography';  // x-axis label and label in tooltip
   var Y_AXIS = 'US Dollars'; // y-axis label and label in tooltip
 
   var SHOW_GRID = true; // `true` to show the grid, `false` to hide
@@ -57,8 +57,6 @@ $(document).ready(function() {
 			datasets: datasets
     };
 
-    //console.log(barChartData)
-
     var ctx = document.getElementById('container').getContext('2d');
 
     new Chart(ctx, {
@@ -73,6 +71,7 @@ $(document).ready(function() {
         },
         legend: {
           display: SHOW_LEGEND,
+          onClick: null,
         },
         scales: {
           xAxes: [{
