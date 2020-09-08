@@ -1,13 +1,14 @@
 $(document).ready(function() {
 
-  var HORIZONTAL = false;   // `false` for vertical (column) chart, `true` for horizontal bar
+  var HORIZONTAL = false;   // `false` for vertical column chart, `true` for horizontal bar chart
+	
   var STACKED = false;  // `false` for individual bars, `true` for stacked bars
 
   var TITLE = 'English Learners by Select School Districts in Connecticut, 2018-19';
 
-  var LABELS = 'district';  // Column to define 'bucket' names (x axis)
+  var LABELS = 'district';  // Column to define 'bucket' names on x-axis (for vertical column chart) or y-axis (for horizontal bar chart)
 
-  var SERIES = [  // For each column representing a series, define its name and color
+  var SERIES = [  // For each column representing a data series, define its name and color
     {
       column: 'nonlearner',
       name: 'Non-Learners',
